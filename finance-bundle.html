@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hasad — Finance bundle application</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌾</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=Cairo:wght@700&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0}
+a{color:#1E6B3A}a:hover{color:#134A27}
+</style>
+<style>body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:32px 16px;box-sizing:border-box;background:#DDE5DF}#app>div{border-radius:28px;box-shadow:0 20px 60px rgba(19,74,39,.25)}@media (max-width:430px){body{padding:0;background:#F6F1E7}#app>div{border-radius:0;box-shadow:none;width:100vw!important;height:100vh!important}}</style>
+<script src="assets/runtime.js"></script>
+<script src="assets/menu.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div style="width: 390px; height: 844px; box-sizing: border-box; font-family: Inter, system-ui, sans-serif; color: #1F2A24; background: #F6F1E7; display: flex; flex-direction: column; overflow: hidden">
+<div style="background: #1E6B3A; color: #FFFFFF; padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; gap: 10px">
+<a aria-label="Back to Farm Planner" href="farm-planner.html" style="color: #FFFFFF; text-decoration: none; font-size: 22px">‹</a>
+<strong style="font-family: Poppins, sans-serif; font-size: 17px">Finance bundle</strong>
+<span style="margin-left: auto; font-family: Cairo, Tahoma, sans-serif; font-weight: 700; font-size: 15px; opacity: .8">حصاد</span>
+</div>
+<div style="display: flex; gap: 6px"><div data-as="b" data-for="{{bars}}" style="{{b}}"></div></div>
+<span style="font-size: 13px; color: #D7E8DC">{{stepLabel}}</span>
+</div>
+<div data-if="{{s1}}" style="padding: 18px; display: flex; flex-direction: column; gap: 12px; flex: 1">
+<h1 style="margin: 0; font-family: Poppins, sans-serif; font-size: 22px; color: #134A27">Your season plan</h1>
+<div style="background: #FFFFFF; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px; font-size: 14px">
+<div style="display: flex; justify-content: space-between"><span style="color: #4F5D55">Crop</span><strong>Sorghum · semi-mechanised</strong></div>
+<div style="display: flex; justify-content: space-between"><span style="color: #4F5D55">Area</span><strong>10 feddans · Gedaref</strong></div>
+<div style="display: flex; justify-content: space-between"><span style="color: #4F5D55">Cost of production</span><strong>SDG 14,000,000</strong></div>
+<div style="display: flex; justify-content: space-between"><span style="color: #4F5D55">Planting</span><strong>Mid-June to mid-July</strong></div>
+</div>
+<p style="margin: 0; font-size: 13px; line-height: 1.5; color: #4F5D55">Taken from your Farm Planner. Your profile, cooperative and documents are filled in for you.</p>
+<button onclick="{{next}}" style="margin-top: auto; font: inherit; font-size: 16px; font-weight: 600; color: #FFFFFF; background: #1E6B3A; border: 0; padding: 15px; border-radius: 12px; cursor: pointer" type="button">Continue</button>
+</div>
+<div data-if="{{s2}}" style="padding: 18px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<h1 style="margin: 0; font-family: Poppins, sans-serif; font-size: 22px; color: #134A27">Choose what you need</h1>
+<button data-as="p" data-for="{{parts}}" onclick="{{p.toggle}}" style="{{p.style}}" type="button"><span style="{{p.box}}">{{p.tick}}</span><span style="display: flex; flex-direction: column; gap: 2px; text-align: left; flex: 1"><strong style="font-size: 15px">{{p.name}}</strong><span style="font-size: 12px; color: #4F5D55">{{p.note}}</span></span><strong style="font-size: 13px; white-space: nowrap">{{p.amount}}</strong></button>
+<p style="margin: 0; font-size: 12px; line-height: 1.5; color: #4F5D55">Insurance is required with the loan. Premium support may apply for eligible farmers.</p>
+<button onclick="{{next}}" style="margin-top: auto; font: inherit; font-size: 16px; font-weight: 600; color: #FFFFFF; background: #1E6B3A; border: 0; padding: 15px; border-radius: 12px; cursor: pointer" type="button">Continue</button>
+</div>
+<div data-if="{{s3}}" style="padding: 18px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<h1 style="margin: 0; font-family: Poppins, sans-serif; font-size: 22px; color: #134A27">Documents</h1>
+<div style="background: #FFFFFF; border-radius: 12px; padding: 14px; display: flex; justify-content: space-between; align-items: center; font-size: 14px"><span>National ID</span><strong style="color: #1E6B3A">✓ On file</strong></div>
+<div style="background: #FFFFFF; border-radius: 12px; padding: 14px; display: flex; justify-content: space-between; align-items: center; font-size: 14px"><span>Cooperative membership letter</span><strong style="color: #1E6B3A">✓ On file</strong></div>
+<div style="background: #FFFFFF; border-radius: 12px; padding: 14px; display: flex; justify-content: space-between; align-items: center; font-size: 14px"><span>Land or scheme allocation proof</span><button style="font: inherit; font-size: 13px; font-weight: 600; color: #134A27; background: #E8F3EC; border: 0; padding: 8px 12px; border-radius: 8px; cursor: pointer" type="button">Take photo</button></div>
+<div style="background: #FFFFFF; border-radius: 12px; padding: 14px; display: flex; justify-content: space-between; align-items: center; font-size: 14px"><span>Hasad trading history</span><strong style="color: #1E6B3A">✓ 3 deliveries</strong></div>
+<label style="display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.45; color: #3A4740; margin-top: 4px"><input checked="" type="checkbox"/> I agree to share this application with the partner bank, insurer and input supplier.</label>
+<button onclick="{{next}}" style="margin-top: auto; font: inherit; font-size: 16px; font-weight: 600; color: #1F2A24; background: #D9A21B; border: 0; padding: 15px; border-radius: 12px; cursor: pointer" type="button">Submit application</button>
+</div>
+<div data-if="{{s4}}" style="padding: 18px; display: flex; flex-direction: column; gap: 14px; flex: 1">
+<h1 style="margin: 0; font-family: Poppins, sans-serif; font-size: 22px; color: #134A27">Application sent</h1>
+<p style="margin: 0; font-size: 14px; color: #3A4740">Reference HSD-2026-0418. We'll message you on WhatsApp at each step.</p>
+<div style="background: #FFFFFF; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; gap: 12px"><span style="width: 24px; height: 24px; flex: none; border-radius: 50%; background: #1E6B3A; color: #FFFFFF; display: grid; place-items: center; font-size: 13px">✓</span><div style="display: flex; flex-direction: column"><strong style="font-size: 14px">Submitted</strong><span style="font-size: 12px; color: #4F5D55">Today</span></div></div>
+<div style="display: flex; gap: 12px"><span style="width: 24px; height: 24px; flex: none; border-radius: 50%; border: 2px solid #D9A21B; background: #FBF3DE"></span><div style="display: flex; flex-direction: column"><strong style="font-size: 14px">Field check by cooperative or MFI</strong><span style="font-size: 12px; color: #4F5D55">Usually within 5 days</span></div></div>
+<div style="display: flex; gap: 12px"><span style="width: 24px; height: 24px; flex: none; border-radius: 50%; border: 2px solid #C9D6CD"></span><div style="display: flex; flex-direction: column"><strong style="font-size: 14px">Loan and policy approved</strong><span style="font-size: 12px; color: #4F5D55">Partner bank and insurer</span></div></div>
+<div style="display: flex; gap: 12px"><span style="width: 24px; height: 24px; flex: none; border-radius: 50%; border: 2px solid #C9D6CD"></span><div style="display: flex; flex-direction: column"><strong style="font-size: 14px">Fertilizer ready at your dealer</strong><span style="font-size: 12px; color: #4F5D55">Verified agro-dealer near you</span></div></div>
+</div>
+<button onclick="{{restart}}" style="margin-top: auto; font: inherit; font-size: 15px; font-weight: 600; color: #1E6B3A; background: transparent; border: 0; padding: 10px; cursor: pointer" type="button">Start again</button>
+</div>
+</div>
+</template>
+<script>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { step: 1, picks: { loan: true, ins: true, fert: true, store: false } }; }
+  renderVals() {
+    const st = this.state;
+    const L = [['loan', 'Working-capital loan', 'Partner bank · cost + 10%', 'SDG 15.4M'], ['ins', 'Crop insurance', 'Compound policy · 5% premium', 'SDG 700,000'], ['fert', 'Fertilizer from a verified dealer', '10 bags DAP + 10 bags urea', 'In loan'], ['store', 'Warehouse storage after harvest', 'Store and borrow against receipt', 'Later']];
+    const parts = L.map(([k, name, note, amount]) => {
+      const on = st.picks[k];
+      const locked = k === 'ins' && st.picks.loan;
+      return { name, note, amount, tick: on ? '✓' : '',
+        toggle: () => { if (locked) return; const p = Object.assign({}, this.state.picks); p[k] = !p[k]; if (k === 'loan' && p.loan) p.ins = true; this.setState({ picks: p }); },
+        style: 'font: inherit; color: #1F2A24; display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px; border-radius: 12px; cursor: pointer; background: #FFFFFF; border: 2px solid ' + (on ? '#1E6B3A' : '#DCE3DD'),
+        box: 'width: 22px; height: 22px; flex: none; border-radius: 6px; display: grid; place-items: center; font-size: 13px; font-weight: 700; color: #FFFFFF; background: ' + (on ? '#1E6B3A' : '#FFFFFF') + '; border: 2px solid ' + (on ? '#1E6B3A' : '#C9D6CD') };
+    });
+    const labels = ['Step 1 of 3 · Your plan', 'Step 2 of 3 · Bundle', 'Step 3 of 3 · Documents', 'Submitted'];
+    const bars = [1, 2, 3, 4].map((i) => 'flex: 1; height: 5px; border-radius: 9px; background: ' + (i <= st.step ? '#D9A21B' : '#134A27'));
+    return { parts, bars, stepLabel: labels[st.step - 1], s1: st.step === 1, s2: st.step === 2, s3: st.step === 3, s4: st.step === 4,
+      next: () => this.setState({ step: Math.min(4, this.state.step + 1) }), restart: () => this.setState({ step: 1 }) };
+  }
+}
+window.__hasadMount(Component, {});
+</script>
+</body>
+</html>

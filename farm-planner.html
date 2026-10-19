@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hasad — Farm Planner</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌾</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=Cairo:wght@700&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0}
+a{color:#1E6B3A}a:hover{color:#134A27}
+</style>
+<style></style>
+<script src="assets/runtime.js"></script>
+<script src="assets/menu.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div style="font-family: Inter, system-ui, sans-serif; color: #1F2A24; background: #F6F1E7; min-height: 2050px">
+<header style="background: #1E6B3A; color: #FFFFFF">
+<div style="max-width: 1320px; margin: 0 auto; padding: 12px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px">
+<a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #FFFFFF">
+<svg aria-hidden="true" height="34" viewbox="0 0 36 36" width="34"><rect fill="#FFFFFF" height="36" rx="10" width="36"></rect><path d="M18 30V14" stroke="#1E6B3A" stroke-linecap="round" stroke-width="2.2"></path><ellipse cx="18" cy="10.5" fill="#D9A21B" rx="3.4" ry="5.2"></ellipse><path d="M18 24c-4.5-.8-6.5-3.6-6.5-7 3.6.2 6.2 2.6 6.5 7zM18 20.5c4.5-.8 6.5-3.6 6.5-7-3.6.2-6.2 2.6-6.5 7z" fill="#4CAF6A"></path></svg>
+<span style="font-family: Poppins, sans-serif; font-weight: 700; font-size: 18px">Hasad <span style="font-family: Cairo, Tahoma, sans-serif; font-weight: 700; opacity: .75">حصاد</span></span>
+</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px; font-size: 15px; font-weight: 500">
+<a href="dashboard.html" style="color: #FFFFFF; text-decoration: none; padding: 9px 14px; border-radius: 8px">Dashboard</a>
+<a href="tenders.html" style="color: #FFFFFF; text-decoration: none; padding: 9px 14px; border-radius: 8px">Tenders</a>
+<a href="dashboard.html" style="color: #FFFFFF; text-decoration: none; padding: 9px 14px; border-radius: 8px">My Applications</a>
+<a href="opportunities.html" style="color: #FFFFFF; text-decoration: none; padding: 9px 14px; border-radius: 8px">Opportunities</a>
+<a href="market-data.html" style="color: #FFFFFF; text-decoration: none; padding: 9px 14px; border-radius: 8px">Market Data</a>
+<a href="farm-planner.html" style="color: #FFFFFF; text-decoration: none; padding: 9px 14px; border-radius: 8px; background: #134A27">Farm Planner</a>
+</nav>
+<div style="margin-left: auto; display: flex; align-items: center; gap: 14px">
+<a href="mobile-ar.html" style="color: #FFFFFF; font-size: 14px; text-decoration: none; border: 1px solid #4CAF6A; border-radius: 8px; padding: 7px 11px">EN | ع</a>
+<span style="width: 38px; height: 38px; border-radius: 50%; background: #D9A21B; color: #1F2A24; display: grid; place-items: center; font-weight: 700">OK</span>
+</div>
+</div>
+</header>
+<main style="max-width: 1320px; margin: 0 auto; padding: 32px 24px 56px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 6px"><h1 style="margin: 0; font-family: Poppins, sans-serif; font-size: 30px; color: #134A27">Farm Planner</h1><p style="margin: 0; color: #4F5D55">Cost, profit, fertilizer, finance and insurance for your season — before you plant</p></div>
+<span style="font-size: 13px; color: #3A4740; background: #FFFFFF; border: 1px solid #DCE3DD; padding: 8px 12px; border-radius: 999px">Kharif (summer) season 2026 · Gedaref</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+<section style="flex: 1 1 360px; min-width: 0; background: #FFFFFF; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 14px; font-weight: 600">1 · Crop</span><div style="display: flex; flex-wrap: wrap; gap: 8px"><button data-as="c" data-for="{{crops}}" onclick="{{c.pick}}" style="{{c.style}}" type="button">{{c.label}}</button></div><span style="font-size: 12px; color: #4F5D55">More crops added each season (about 30 planned)</span></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 14px; font-weight: 600">2 · How you farm</span><div style="display: flex; flex-direction: column; gap: 8px"><button data-as="s" data-for="{{systems}}" onclick="{{s.pick}}" style="{{s.style}}" type="button"><span style="font-weight: 600">{{s.label}}</span><span style="font-size: 12px; color: #4F5D55">{{s.note}}</span></button></div></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 14px; font-weight: 600">3 · Area</span>
+<div style="display: flex; align-items: center; gap: 10px"><button aria-label="Fewer feddans" onclick="{{fdDown}}" style="width: 44px; height: 44px; font: inherit; font-size: 22px; border: 1px solid #C9D6CD; background: #FFFFFF; border-radius: 10px; cursor: pointer" type="button">−</button><strong style="font-family: Poppins, sans-serif; font-size: 26px; min-width: 120px; text-align: center; color: #134A27">{{fdLabel}}</strong><button aria-label="More feddans" onclick="{{fdUp}}" style="width: 44px; height: 44px; font: inherit; font-size: 22px; border: 1px solid #C9D6CD; background: #FFFFFF; border-radius: 10px; cursor: pointer" type="button">+</button></div></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 14px; font-weight: 600">4 · Your expected yield and price</span>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 14px"><span>Yield, kg per feddan</span><span style="display: flex; align-items: center; gap: 8px"><button aria-label="Lower yield" onclick="{{yDown}}" style="width: 34px; height: 34px; border: 1px solid #C9D6CD; background: #FFFFFF; border-radius: 8px; cursor: pointer" type="button">−</button><strong style="min-width: 64px; text-align: center">{{yieldLabel}}</strong><button aria-label="Higher yield" onclick="{{yUp}}" style="width: 34px; height: 34px; border: 1px solid #C9D6CD; background: #FFFFFF; border-radius: 8px; cursor: pointer" type="button">+</button></span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 14px"><span>Farm-gate price, SDG per kg</span><span style="display: flex; align-items: center; gap: 8px"><button aria-label="Lower price" onclick="{{pDown}}" style="width: 34px; height: 34px; border: 1px solid #C9D6CD; background: #FFFFFF; border-radius: 8px; cursor: pointer" type="button">−</button><strong style="min-width: 64px; text-align: center">{{priceLabel}}</strong><button aria-label="Higher price" onclick="{{pUp}}" style="width: 34px; height: 34px; border: 1px solid #C9D6CD; background: #FFFFFF; border-radius: 8px; cursor: pointer" type="button">+</button></span></div>
+<span style="font-size: 12px; color: #4F5D55">{{refNote}}</span></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 14px; font-weight: 600">5 · Cost basis</span><div style="display: flex; gap: 6px; background: #F6F1E7; padding: 4px; border-radius: 10px"><button onclick="{{fxOff}}" style="{{fxOffStyle}}" type="button">Manual, Jul 2026</button><button onclick="{{fxOn}}" style="{{fxOnStyle}}" type="button">Updated to Aug FX</button></div><span style="font-size: 12px; color: #4F5D55">{{fxNote}}</span></div>
+</section>
+<div style="flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px">
+<div style="background: #FFFFFF; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px; border-top: 5px solid #8A5A3B"><span style="font-size: 13px; color: #4F5D55">Cost of production</span><strong style="font-family: Poppins, sans-serif; font-size: 24px; color: #134A27">{{cost}}</strong><span style="font-size: 12px; color: #4F5D55">{{costPerFd}}</span></div>
+<div style="background: #FFFFFF; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px; border-top: 5px solid #1E6B3A"><span style="font-size: 13px; color: #4F5D55">Expected revenue</span><strong style="font-family: Poppins, sans-serif; font-size: 24px; color: #134A27">{{revenue}}</strong><span style="font-size: 12px; color: #4F5D55">{{revNote}}</span></div>
+<div style="{{marginCard}}"><span style="font-size: 13px; color: #4F5D55">Expected margin</span><strong style="{{marginStyle}}">{{margin}}</strong><span style="font-size: 12px; color: #4F5D55">{{marginPerFd}}</span></div>
+<div style="background: #FFFFFF; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px; border-top: 5px solid #D9A21B"><span style="font-size: 13px; color: #4F5D55">Break-even yield</span><strong style="font-family: Poppins, sans-serif; font-size: 24px; color: #134A27">{{breakEven}}</strong><span style="font-size: 12px; color: #4F5D55">at this price and cost</span></div>
+</div>
+<p data-if="{{isLoss}}" style="margin: 0; font-size: 14px; line-height: 1.55; color: #6B4A00; background: #FBF3DE; border-radius: 14px; padding: 14px 18px"><strong>At this yield the season loses money.</strong> Certified seed of improved varieties can add up to 40% yield, and timely fertilizer matters most in this system. Try a higher yield to see what it takes.</p>
+<section style="background: #134A27; color: #FFFFFF; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center"><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #F2C14E">Hasad finance bundle</span><strong style="font-family: Poppins, sans-serif; font-size: 22px">Loan, insurance and inputs in one application</strong></div><a href="finance-bundle.html" style="font-size: 15px; font-weight: 700; color: #1F2A24; background: #D9A21B; text-decoration: none; padding: 12px 18px; border-radius: 10px">Apply with this plan</a></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px">
+<div style="background: #1E6B3A; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #D7E8DC">Working-capital loan</span><strong style="font-family: Poppins, sans-serif; font-size: 20px">{{loan}}</strong><span style="font-size: 12px; color: #D7E8DC">Cost + 10% buffer · partner bank</span></div>
+<div style="background: #1E6B3A; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #D7E8DC">Crop insurance premium</span><strong style="font-family: Poppins, sans-serif; font-size: 20px">{{premium}}</strong><span style="font-size: 12px; color: #D7E8DC">5% of sum insured {{sumInsured}} · plus fees</span></div>
+<div style="background: #1E6B3A; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #D7E8DC">Fertilizer to order</span><strong style="font-family: Poppins, sans-serif; font-size: 20px">{{fertTotal}}</strong><span style="font-size: 12px; color: #D7E8DC">{{fertRate}}</span></div>
+<div style="background: #1E6B3A; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #D7E8DC">Premium support</span><strong style="font-family: Poppins, sans-serif; font-size: 20px">May apply</strong><span style="font-size: 12px; color: #D7E8DC">Eligible farmers in the first cohort</span></div>
+</div>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+<section style="flex: 1 1 400px; min-width: 0; background: #FFFFFF; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 10px">
+<strong style="font-family: Poppins, sans-serif; font-size: 17px; color: #134A27">Cost breakdown</strong>
+<div style="overflow-x: auto"><table style="width: 100%; border-collapse: collapse; font-size: 13px; min-width: 360px">
+<thead><tr style="background: #E8F3EC; text-align: left"><th style="padding: 8px 10px">Item</th><th style="padding: 8px 10px; text-align: right">Per feddan</th><th style="padding: 8px 10px; text-align: right">Your farm</th></tr></thead>
+<tbody><tr data-as="r" data-for="{{rows}}" style="border-top: 1px solid #DCE3DD"><td style="padding: 7px 10px">{{r.item}}</td><td style="padding: 7px 10px; text-align: right">{{r.per}}</td><td style="padding: 7px 10px; text-align: right; font-weight: 600">{{r.total}}</td></tr></tbody>
+</table></div>
+</section>
+<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<section style="background: #FFFFFF; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
+<strong style="font-family: Poppins, sans-serif; font-size: 17px; color: #134A27">Crop calendar</strong>
+<div style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px"><div data-as="m" data-for="{{months}}" style="display: flex; flex-direction: column; align-items: center; gap: 4px"><div style="{{m.style}}"></div><span style="font-size: 11px; color: #4F5D55">{{m.label}}</span></div></div>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px"><span style="display: flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; border-radius: 3px; background: #1E6B3A"></span>Sow</span><span style="display: flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; border-radius: 3px; background: #B9E4C6"></span>Growing</span><span style="display: flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; border-radius: 3px; background: #D9A21B"></span>Harvest</span></div>
+<span style="font-size: 13px; color: #3A4740">{{calNote}}</span>
+</section>
+<section style="background: #FFFFFF; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px"><strong style="font-family: Poppins, sans-serif; font-size: 17px; color: #134A27">Sell at harvest or store?</strong><span style="{{storeBadge}}">{{storeRating}}</span></div>
+<p style="margin: 0; font-size: 14px; line-height: 1.55; color: #3A4740">{{storeText}}</p>
+<strong style="font-size: 14px; color: #134A27">{{storeGain}}</strong>
+</section>
+</div>
+</div>
+<section style="background: #FFFFFF; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
+<strong style="font-family: Poppins, sans-serif; font-size: 17px; color: #134A27">What crop insurance covers</strong>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 700; color: #1E6B3A">Covered</span><span data-as="c" data-for="{{covered}}" style="font-size: 14px">✓ {{c}}</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 700; color: #C0392B">Not covered</span><span data-as="c" data-for="{{excluded}}" style="font-size: 14px">✕ {{c}}</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px; background: #FBF3DE; border-radius: 12px; padding: 12px 14px"><span style="font-size: 13px; font-weight: 700; color: #6B4A00">Report losses fast</span><span style="font-size: 14px">Crop damage, fire or theft: within 7 days</span><span style="font-size: 14px">Transport accidents: within 48 hours</span><span style="font-size: 12px; color: #4F5D55">Hasad sends you the deadline when you report an event</span></div>
+</div>
+</section>
+<p style="margin: 0; font-size: 12px; line-height: 1.5; color: #4F5D55">Indicative figures from the 249Startups Sudan Crop Production &amp; Risk Reference Manual (kharif 2026, sample) based on FAO CFSAM 2024 and field sources. Costs vary by locality — check locally before committing money. Loan and insurance terms are set by the partner bank and insurer.</p>
+</div>
+</div>
+</main>
+</div>
+</template>
+<script>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { crop: 'sorghum', sys: 'sm', fd: 10, fx: false, yStep: 0, pStep: 0 }; }
+  renderVals() {
+    const ITEMS = {
+      sorghum: ['Land preparation', 'Seed', 'Fertilizer (urea + DAP)', 'Crop protection', 'Labour (sowing, weeding)', 'Irrigation / water', 'Harvest and threshing', 'Transport', 'Sacks / post-harvest', 'Contingency'],
+      sesame: ['Land preparation', 'Seed', 'Fertilizer', 'Crop protection', 'Labour (incl. harvest)', 'Irrigation / water', 'Harvest and threshing', 'Transport', 'Sacks / post-harvest', 'Contingency'],
+      onion: ['Land and beds', 'Seedlings', 'Fertilizer (NPK, urea, organic)', 'Crop protection', 'Labour', 'Irrigation (pump, fuel)', 'Harvest and curing', 'Transport and sacks', 'Storage / loss reserve', 'Contingency']
+    };
+    const D = {
+      sorghum: { label: 'Sorghum', price: 2500, sys: {
+        trad: { cost: [80, 40, 0, 20, 200, 0, 120, 40, 40, 20], y: 300, dap: 0, urea: 0, fertNote: 'Optional: 1 bag DAP per feddan at sowing' },
+        sm: { cost: [240, 100, 280, 120, 200, 0, 200, 80, 80, 100], y: 450, dap: 1, urea: 1, fertNote: 'Per feddan: 1 bag DAP at sowing, 1 bag urea at knee height' },
+        irr: { cost: [320, 120, 480, 160, 320, 200, 280, 80, 100, 140], y: 1000, dap: 1.5, urea: 1.5, fertNote: 'Per feddan: 150 kg DAP and urea (plus potash if needed), split 3 times' } },
+        months: ['s', 's', 'g', 'g', 'g', 'h', 'h', 'h', '', '', '', ''], cal: 'Sow mid-June to mid-July · harvest November to January · 110–140 days',
+        store: ['Highly suitable', 'Stores 12+ months. Prices typically rise 25–40% from the December harvest to the July–September lean season. A certified warehouse receipt can unlock finance of 60–70% of the stored value.', 0.325],
+        cov: ['Drought and rain shortage', 'Flooding and waterlogging', 'Sorghum midge, stem borer (after control)', 'Quelea birds and locusts'], exc: ['Striga (buda)', 'Smut', 'Price falls'] },
+      sesame: { label: 'Sesame', price: 14000, sys: {
+        trad: { cost: [80, 60, 0, 40, 320, 0, 200, 40, 40, 20], y: 120, dap: 0, urea: 0, fertNote: 'No fertilizer in the typical traditional budget' },
+        sm: { cost: [240, 120, 200, 160, 360, 0, 240, 80, 80, 120], y: 180, dap: 1, urea: 0, fertNote: 'Per feddan: 1 bag DAP at sowing; no urea top-dress in kharif' },
+        irr: { cost: [320, 140, 360, 200, 480, 200, 280, 80, 100, 160], y: 350, dap: 1, urea: 1, fertNote: 'Per feddan: 1 bag DAP and 1 bag urea, split' } },
+        months: ['s', 's', 'g', 'g', 'h', 'h', '', '', '', '', '', ''], cal: 'Sow late June to late July · harvest October to November · 90–120 days',
+        store: ['Highly suitable', 'Export crop with strong price discovery. Prices typically rise 15–30% from the November harvest to the February–May export peak. Receipts can unlock 65–75% finance.', 0.225],
+        cov: ['Drought and rain shortage', 'Flooding and waterlogging', 'Webworm, gall midge (after control)'], exc: ['Capsule shatter at harvest', 'World price falls', 'Export contamination'] },
+      onion: { label: 'Onion', price: 1200, sys: {
+        irr: { cost: [360, 480, 720, 480, 1200, 600, 320, 200, 240, 200], y: 8000, dap: 0, urea: 0, fertNote: 'NPK 15-15-15 at transplant, urea top-dress, compost' } },
+        months: ['s', 's', 'g', 'g', 'h', 'h', 'h', '', '', '', '', ''], cal: 'Transplant June to July · harvest October to December · mainly a winter crop',
+        store: ['Limited', 'Stores only 2–4 months without cold storage, and losses can reach 30–40%. Plan to sell soon after harvest or use short-term storage.', 0],
+        cov: ['Excess rain and waterlogging', 'Downy mildew, purple blotch (after control)', 'Thrips (after control)'], exc: ['Rot or sprouting after harvest', 'Price collapse'] }
+    };
+    const SYS = [['trad', 'Rain-fed, traditional', 'Hand tools, small plots'], ['sm', 'Rain-fed, semi-mechanised', 'Tractor ploughing, larger blocks'], ['irr', 'Irrigated', 'Schemes, pumps, river plots']];
+    const st = this.state;
+    const crop = D[st.crop];
+    const sysKey = crop.sys[st.sys] ? st.sys : 'irr';
+    const s = crop.sys[sysKey];
+    const fxF = st.fx ? 6150 / 4000 : 1;
+    const fmt = (n) => 'SDG ' + Math.round(n).toLocaleString('en-US');
+    const short = (n) => Math.abs(n) >= 1e6 ? (n < 0 ? '−' : '') + 'SDG ' + (Math.abs(n) / 1e6).toFixed(1) + 'M' : (n < 0 ? '−' : '') + 'SDG ' + Math.round(Math.abs(n)).toLocaleString('en-US');
+    const perFd = s.cost.reduce((a, b) => a + b, 0) * 1000 * fxF;
+    const yld = Math.round(s.y * (1 + 0.1 * st.yStep));
+    const price = Math.round(crop.price * (1 + 0.1 * st.pStep));
+    const cost = perFd * st.fd;
+    const rev = yld * price * st.fd;
+    const margin = rev - cost;
+    const btn = (on) => 'font: inherit; font-size: 14px; font-weight: 600; padding: 10px 14px; border-radius: 10px; cursor: pointer; ' + (on ? 'background: #1E6B3A; color: #FFFFFF; border: 1px solid #1E6B3A' : 'background: #FFFFFF; color: #134A27; border: 1px solid #C9D6CD');
+    const crops = Object.keys(D).map((k) => ({ label: D[k].label, pick: () => this.setState({ crop: k, yStep: 0, pStep: 0, sys: D[k].sys[this.state.sys] ? this.state.sys : 'irr' }), style: btn(st.crop === k) }));
+    const systems = SYS.map(([k, label, note]) => {
+      const ok = !!crop.sys[k];
+      const on = sysKey === k;
+      return { label, note: ok ? note : 'Not typical for this crop in kharif', pick: () => ok && this.setState({ sys: k, yStep: 0 }), style: 'font: inherit; text-align: left; display: flex; flex-direction: column; gap: 2px; padding: 12px 14px; border-radius: 12px; cursor: ' + (ok ? 'pointer' : 'not-allowed') + '; opacity: ' + (ok ? 1 : 0.5) + '; background: ' + (on ? '#E8F3EC' : '#FFFFFF') + '; border: 2px solid ' + (on ? '#1E6B3A' : '#DCE3DD') + '; color: #1F2A24' };
+    });
+    const rows = s.cost.map((v, i) => ({ item: ITEMS[st.crop][i], per: v ? fmt(v * 1000 * fxF) : '—', total: v ? short(v * 1000 * fxF * st.fd) : '—' })).concat([{ item: 'Total', per: fmt(perFd), total: short(cost) }]);
+    const dapB = s.dap * st.fd, ureaB = s.urea * st.fd;
+    const fertTotal = st.crop === 'onion' ? 'NPK + urea' : (dapB + ureaB === 0 ? 'None required' : [dapB ? dapB + ' bags DAP' : '', ureaB ? ureaB + ' bags urea' : ''].filter(Boolean).join(' + '));
+    const months = ['Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May'].map((label, i) => {
+      const k = crop.months[i];
+      const c = k === 's' ? '#1E6B3A' : k === 'g' ? '#B9E4C6' : k === 'h' ? '#D9A21B' : '#EEF1EF';
+      return { label, style: 'width: 100%; height: 26px; border-radius: 5px; background: ' + c };
+    });
+    const loss = margin < 0;
+    return {
+      crops, systems, rows, months,
+      fdLabel: st.fd + ' feddan' + (st.fd === 1 ? '' : 's'),
+      fdDown: () => this.setState({ fd: Math.max(1, this.state.fd - (this.state.fd > 10 ? 5 : 1)) }),
+      fdUp: () => this.setState({ fd: Math.min(500, this.state.fd + (this.state.fd >= 10 ? 5 : 1)) }),
+      yieldLabel: yld.toLocaleString('en-US'), priceLabel: price.toLocaleString('en-US'),
+      yDown: () => this.setState({ yStep: Math.max(-5, this.state.yStep - 1) }), yUp: () => this.setState({ yStep: Math.min(10, this.state.yStep + 1) }),
+      pDown: () => this.setState({ pStep: Math.max(-5, this.state.pStep - 1) }), pUp: () => this.setState({ pStep: Math.min(10, this.state.pStep + 1) }),
+      refNote: 'Typical yield ' + s.y.toLocaleString('en-US') + ' kg/fd · reference farm-gate price SDG ' + crop.price.toLocaleString('en-US') + '/kg' + (st.crop === 'sorghum' ? ' (WFP national retail, Aug 2026: SDG 2,465/kg)' : ''),
+      fxOff: () => this.setState({ fx: false }), fxOn: () => this.setState({ fx: true }),
+      fxOffStyle: btn(!st.fx) + '; flex: 1; border: 0', fxOnStyle: btn(st.fx) + '; flex: 1; border: 0',
+      fxNote: st.fx ? 'Manual costs scaled from SDG 4,000 to SDG 6,150 per USD (WFP, Aug 2026). Calculated estimate.' : 'Costs as published in July 2026, at SDG 4,000 per USD (parallel rate).',
+      cost: short(cost), costPerFd: fmt(perFd) + ' per feddan',
+      revenue: short(rev), revNote: yld.toLocaleString('en-US') + ' kg × SDG ' + price.toLocaleString('en-US') + ' × ' + st.fd + ' fd',
+      margin: short(margin), marginPerFd: short(margin / st.fd) + ' per feddan',
+      marginCard: 'background: ' + (loss ? '#FDECEA' : '#FFFFFF') + '; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px; border-top: 5px solid ' + (loss ? '#C0392B' : '#1E6B3A'),
+      marginStyle: 'font-family: Poppins, sans-serif; font-size: 24px; color: ' + (loss ? '#C0392B' : '#134A27'),
+      breakEven: Math.round(perFd / price).toLocaleString('en-US') + ' kg/fd', isLoss: loss,
+      loan: short(cost * 1.1), premium: short(cost * 0.05), sumInsured: short(cost),
+      fertTotal, fertRate: s.fertNote,
+      calNote: crop.cal,
+      storeRating: crop.store[0], storeText: crop.store[1],
+      storeBadge: 'font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; ' + (crop.store[2] ? 'color: #FFFFFF; background: #1E6B3A' : 'color: #6B4A00; background: #FBF3DE'),
+      storeGain: crop.store[2] ? 'Storing to the seasonal peak could add about ' + short(rev * crop.store[2]) + ' (mid-range, before storage costs).' : 'Selling at harvest is usually safer for this crop.',
+      covered: crop.cov, excluded: crop.exc
+    };
+  }
+}
+window.__hasadMount(Component, {});
+</script>
+</body>
+</html>

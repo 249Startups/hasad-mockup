@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hasad — Mobile registration</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌾</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0}
+a{color:#1E6B3A}a:hover{color:#134A27}
+</style>
+<style>body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:32px 16px;box-sizing:border-box;background:#DDE5DF}#app>div{border-radius:28px;box-shadow:0 20px 60px rgba(19,74,39,.25)}@media (max-width:430px){body{padding:0;background:#F6F1E7}#app>div{border-radius:0;box-shadow:none;width:100vw!important;height:100vh!important}}</style>
+<script src="assets/runtime.js"></script>
+<script src="assets/menu.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div style="width: 390px; height: 844px; box-sizing: border-box; font-family: Inter, system-ui, sans-serif; color: #1F2A24; background: #F6F1E7; display: flex; flex-direction: column; overflow: hidden">
+<div style="background: #1E6B3A; color: #FFFFFF; padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 10px">
+<svg aria-hidden="true" height="30" viewbox="0 0 36 36" width="30"><rect fill="#FFFFFF" height="36" rx="10" width="36"></rect><path d="M18 30V14" stroke="#1E6B3A" stroke-linecap="round" stroke-width="2.2"></path><ellipse cx="18" cy="10.5" fill="#D9A21B" rx="3.4" ry="5.2"></ellipse><path d="M18 24c-4.5-.8-6.5-3.6-6.5-7 3.6.2 6.2 2.6 6.5 7zM18 20.5c4.5-.8 6.5-3.6 6.5-7-3.6.2-6.2 2.6-6.5 7z" fill="#4CAF6A"></path></svg>
+<strong style="font-family: Poppins, sans-serif; font-size: 17px">Hasad <span style="font-family: Cairo, Tahoma, sans-serif; font-weight: 700; opacity: .75">حصاد</span></strong>
+<a href="mobile-ar.html" style="margin-left: auto; color: #FFFFFF; font-size: 13px; text-decoration: none; border: 1px solid #4CAF6A; border-radius: 8px; padding: 6px 10px">ع</a>
+</div>
+<div style="display: flex; gap: 6px"><div style="flex: 1; height: 5px; border-radius: 9px; background: #D9A21B"></div><div style="{{bar2}}"></div></div>
+<span style="font-size: 13px; color: #D7E8DC">{{stepLabel}}</span>
+</div>
+<div data-if="{{isStep1}}" style="padding: 22px 20px; display: flex; flex-direction: column; gap: 12px; flex: 1">
+<h1 style="margin: 0 0 4px; font-family: Poppins, sans-serif; font-size: 24px; line-height: 1.2; color: #134A27">Who are you?</h1>
+<button data-as="r" data-for="{{roles}}" onclick="{{r.pick}}" style="{{r.style}}" type="button">
+<span style="{{r.dot}}"></span>
+<span style="display: flex; flex-direction: column; gap: 2px; text-align: left"><strong style="font-size: 16px">{{r.label}}</strong><span style="font-size: 13px; color: #5D6B63">{{r.hint}}</span></span>
+</button>
+<button onclick="{{next}}" style="margin-top: auto; font: inherit; font-size: 16px; font-weight: 600; color: #FFFFFF; background: #1E6B3A; border: 0; padding: 16px; border-radius: 12px; cursor: pointer" type="button">Continue</button>
+<p style="margin: 0; text-align: center; font-size: 14px; color: #5D6B63">Already a member? <a href="dashboard.html" style="font-weight: 600">Log in</a></p>
+</div>
+<div data-if="{{isStep2}}" style="padding: 22px 20px; display: flex; flex-direction: column; gap: 14px; flex: 1">
+<h1 style="margin: 0; font-family: Poppins, sans-serif; font-size: 24px; line-height: 1.2; color: #134A27">Create your account</h1>
+<span style="align-self: flex-start; font-size: 13px; font-weight: 600; color: #134A27; background: #E8F3EC; padding: 5px 11px; border-radius: 999px">Joining as: {{roleName}}</span>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">Full name<input placeholder="e.g. Amna Ahmed" style="font: inherit; font-weight: 400; font-size: 16px; padding: 13px; border: 1px solid #C9D6CD; border-radius: 10px; background: #FFFFFF" type="text"/></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">Phone number<span style="display: flex; gap: 8px"><span style="font-weight: 400; font-size: 16px; padding: 13px; border: 1px solid #C9D6CD; border-radius: 10px; background: #FFFFFF">+249</span><input placeholder="9X XXX XXXX" style="flex: 1; min-width: 0; font: inherit; font-weight: 400; font-size: 16px; padding: 13px; border: 1px solid #C9D6CD; border-radius: 10px; background: #FFFFFF" type="tel"/></span></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">State<select style="font: inherit; font-weight: 400; font-size: 16px; padding: 13px; border: 1px solid #C9D6CD; border-radius: 10px; background: #FFFFFF"><option>Gedaref</option><option>Kassala</option><option>Al Jazirah</option></select></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600">Email <span style="font-weight: 400; color: #5D6B63">(optional)</span><input style="font: inherit; font-weight: 400; font-size: 16px; padding: 13px; border: 1px solid #C9D6CD; border-radius: 10px; background: #FFFFFF" type="email"/></label>
+<p style="margin: 0; font-size: 13px; color: #5D6B63">We'll send a 6-digit code by SMS to confirm your number.</p>
+<a href="dashboard.html" style="margin-top: auto; text-align: center; font-size: 16px; font-weight: 600; color: #FFFFFF; background: #1E6B3A; text-decoration: none; padding: 16px; border-radius: 12px">Send code</a>
+<button onclick="{{back}}" style="font: inherit; font-size: 15px; font-weight: 600; color: #1E6B3A; background: transparent; border: 0; padding: 8px; cursor: pointer" type="button">Back</button>
+</div>
+</div>
+</template>
+<script>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { step: 1, role: 'farmer' }; }
+  renderVals() {
+    const list = [
+      ['farmer', 'Farmer', 'I grow crops or raise livestock', '#1E6B3A'],
+      ['coop', 'Farmer group / Cooperative', 'Association, cooperative or producer group', '#4CAF6A'],
+      ['input', 'Input provider', 'Seed, fertiliser, equipment, vet supplies', '#8A5A3B'],
+      ['agri', 'Agribusiness', 'Processing, trading, transport, agri-tech', '#D9A21B'],
+      ['org', 'Support organisation', 'NGO, UN agency, donor, government, bank', '#1C6E8C']
+    ];
+    const roles = list.map(([id, label, hint, color]) => {
+      const on = this.state.role === id;
+      return {
+        label, hint,
+        pick: () => this.setState({ role: id }),
+        style: 'font: inherit; color: #1F2A24; display: flex; align-items: center; gap: 14px; width: 100%; padding: 14px 16px; border-radius: 14px; cursor: pointer; background: #FFFFFF; border: 2px solid ' + (on ? '#1E6B3A' : '#DCE3DD') + (on ? '; box-shadow: 0 0 0 3px #E8F3EC' : ''),
+        dot: 'flex: none; width: 36px; height: 36px; border-radius: 10px; background: ' + color
+      };
+    });
+    const roleName = (list.find((x) => x[0] === this.state.role) || list[0])[1];
+    const s2 = this.state.step === 2;
+    return {
+      roles, roleName,
+      isStep1: !s2, isStep2: s2,
+      stepLabel: s2 ? 'Step 2 of 2 · Your details' : 'Step 1 of 2 · Choose your role',
+      bar2: 'flex: 1; height: 5px; border-radius: 9px; background: ' + (s2 ? '#D9A21B' : '#134A27'),
+      next: () => this.setState({ step: 2 }),
+      back: () => this.setState({ step: 1 })
+    };
+  }
+}
+window.__hasadMount(Component, {});
+</script>
+</body>
+</html>

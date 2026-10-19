@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hasad — Plans and pricing</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌾</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0}
+a{color:#1E6B3A}a:hover{color:#134A27}
+</style>
+<style></style>
+<script src="assets/runtime.js"></script>
+<script src="assets/menu.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div style="font-family: Inter, system-ui, sans-serif; color: #1F2A24; background: #FFFFFF">
+<header style="background: #FFFFFF; border-bottom: 1px solid #DCE3DD">
+<div style="max-width: 1240px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px">
+<a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #134A27">
+<svg aria-hidden="true" height="38" viewbox="0 0 36 36" width="38"><rect fill="#1E6B3A" height="36" rx="10" width="36"></rect><path d="M18 30V14" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.2"></path><ellipse cx="18" cy="10.5" fill="#D9A21B" rx="3.4" ry="5.2"></ellipse><path d="M18 24c-4.5-.8-6.5-3.6-6.5-7 3.6.2 6.2 2.6 6.5 7zM18 20.5c4.5-.8 6.5-3.6 6.5-7-3.6.2-6.2 2.6-6.5 7z" fill="#4CAF6A"></path></svg>
+<span style="font-family: Poppins, sans-serif; font-weight: 700; font-size: 20px">Hasad <span style="font-family: Cairo, Tahoma, sans-serif; font-weight: 700; opacity: .75">حصاد</span></span>
+</a>
+<span style="font-size: 12px; color: #5D6B63; border-left: 1px solid #DCE3DD; padding-left: 12px">Powered by <strong style="color: #1F2A24">249Startups</strong></span>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 24px; margin-left: auto; font-size: 15px; font-weight: 500">
+<a href="tenders.html" style="color: #1F2A24; text-decoration: none">Tenders</a>
+<a href="pricing.html" style="color: #1E6B3A; text-decoration: none; font-weight: 700">Pricing</a>
+<a href="index.html#how" style="color: #1F2A24; text-decoration: none">How it works</a>
+<a href="index.html#faq" style="color: #1F2A24; text-decoration: none">FAQ</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 12px">
+<a href="dashboard.html" style="font-size: 15px; font-weight: 600; color: #1E6B3A; text-decoration: none; padding: 10px 14px">Log in</a>
+<a href="register.html" style="font-size: 15px; font-weight: 600; color: #FFFFFF; background: #1E6B3A; text-decoration: none; padding: 11px 18px; border-radius: 10px">Start free</a>
+</div>
+</div>
+</header>
+<section style="background: #F6F1E7">
+<div style="max-width: 1240px; margin: 0 auto; padding: 64px 24px 40px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+<span style="font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #8A5A3B">Plans &amp; pricing</span>
+<h1 style="margin: 0; font-family: Poppins, sans-serif; font-size: 46px; line-height: 1.1; color: #134A27; max-width: 760px">Start free. Upgrade when you're ready to grow.</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.55; color: #3A4740; max-width: 640px">Every account starts on the free Basic plan. Choose a paid plan for unlimited tenders, full market data and funding alerts.</p>
+<div aria-label="Billing period" role="group" style="display: flex; gap: 4px; background: #FFFFFF; border: 1px solid #DCE3DD; border-radius: 999px; padding: 4px; margin-top: 8px">
+<button onclick="{{setMonthly}}" style="{{monthlyStyle}}" type="button">Monthly</button>
+<button onclick="{{setAnnual}}" style="{{annualStyle}}" type="button">Annual · 2 months free</button>
+</div>
+</div>
+</section>
+<section style="background: #F6F1E7">
+<div style="max-width: 1240px; margin: 0 auto; padding: 0 24px 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; align-items: stretch">
+<article style="background: #FFFFFF; border: 1px solid #DCE3DD; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px"><h2 style="margin: 0; font-family: Poppins, sans-serif; font-size: 22px; color: #134A27">Basic</h2><p style="margin: 0; font-size: 14px; color: #5D6B63; min-height: 42px">For farmers and anyone getting started.</p></div>
+<div style="display: flex; align-items: baseline; gap: 6px"><strong style="font-family: Poppins, sans-serif; font-size: 40px; color: #134A27">Free</strong></div>
+<a href="register.html" style="text-align: center; font-size: 15px; font-weight: 600; color: #134A27; background: #FFFFFF; border: 1.5px solid #1E6B3A; text-decoration: none; padding: 13px; border-radius: 10px">Start free</a>
+<ul style="margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.6; color: #3A4740; display: flex; flex-direction: column; gap: 6px">
+<li>Profile and tender browsing</li>
+<li>Apply to 3 tenders a month</li>
+<li>Post 1 tender a month</li>
+<li>Unlimited "Open to farmers" applications</li>
+<li>Browse funding opportunities</li>
+<li>Monthly market headline</li>
+</ul>
+</article>
+<article style="background: #FFFFFF; border: 1px solid #DCE3DD; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px"><h2 style="margin: 0; font-family: Poppins, sans-serif; font-size: 22px; color: #134A27">Grow</h2><p style="margin: 0; font-size: 14px; color: #5D6B63; min-height: 42px">For cooperatives, small suppliers and growing farms.</p></div>
+<div style="display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap"><strong style="font-family: Poppins, sans-serif; font-size: 40px; color: #134A27">{{growPrice}}</strong><span style="font-size: 14px; color: #5D6B63">{{period}}</span></div>
+<a href="register.html" style="text-align: center; font-size: 15px; font-weight: 600; color: #FFFFFF; background: #1E6B3A; text-decoration: none; padding: 13px; border-radius: 10px">Choose Grow</a>
+<ul style="margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.6; color: #3A4740; display: flex; flex-direction: column; gap: 6px">
+<li>Everything in Basic, plus:</li>
+<li>Unlimited tender applications</li>
+<li>Post 3 tenders a month</li>
+<li>Opportunity alerts and deadline reminders</li>
+<li>Full Market Data dashboard</li>
+<li>Verified badge</li>
+</ul>
+</article>
+<article style="background: #134A27; color: #FFFFFF; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; gap: 16px; position: relative; box-shadow: 0 16px 40px rgba(19,74,39,.25)">
+<span style="position: absolute; top: -13px; left: 24px; font-size: 12px; font-weight: 700; color: #1F2A24; background: #D9A21B; padding: 5px 12px; border-radius: 999px">Most popular</span>
+<div style="display: flex; flex-direction: column; gap: 6px"><h2 style="margin: 0; font-family: Poppins, sans-serif; font-size: 22px">Business</h2><p style="margin: 0; font-size: 14px; color: #D7E8DC; min-height: 42px">For input providers and agribusinesses that win contracts.</p></div>
+<div style="display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap"><strong style="font-family: Poppins, sans-serif; font-size: 40px; color: #F2C14E">{{businessPrice}}</strong><span style="font-size: 14px; color: #D7E8DC">{{period}}</span></div>
+<a href="register.html" style="text-align: center; font-size: 15px; font-weight: 700; color: #1F2A24; background: #D9A21B; text-decoration: none; padding: 13px; border-radius: 10px">Choose Business</a>
+<ul style="margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.6; color: #E4F0E8; display: flex; flex-direction: column; gap: 6px">
+<li>Everything in Grow, plus:</li>
+<li>Unlimited tender posting</li>
+<li>Featured profile in search</li>
+<li>Compare offers and award reports</li>
+<li>Price alerts and CSV export</li>
+<li>Up to 3 team members · priority verification</li>
+</ul>
+</article>
+<article style="background: #FFFFFF; border: 1px solid #DCE3DD; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px"><h2 style="margin: 0; font-family: Poppins, sans-serif; font-size: 22px; color: #134A27">Organisation</h2><p style="margin: 0; font-size: 14px; color: #5D6B63; min-height: 42px">For NGOs, UN agencies, donors and programs.</p></div>
+<div style="display: flex; align-items: baseline; gap: 6px"><strong style="font-family: Poppins, sans-serif; font-size: 40px; color: #134A27">Custom</strong></div>
+<a href="index.html#about" style="text-align: center; font-size: 15px; font-weight: 600; color: #134A27; background: #FFFFFF; border: 1.5px solid #1E6B3A; text-decoration: none; padding: 13px; border-radius: 10px">Talk to us</a>
+<ul style="margin: 0; padding-left: 20px; font-size: 14px; line-height: 1.6; color: #3A4740; display: flex; flex-direction: column; gap: 6px">
+<li>Everything in Business, plus:</li>
+<li>Unlimited team members and roles</li>
+<li>Procurement workflow and audit trail</li>
+<li>List your programs in Opportunities</li>
+<li>Market data exports for program planning</li>
+<li>Dedicated account manager</li>
+</ul>
+</article>
+</div>
+</section>
+<section style="background: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 24px">
+<h2 style="margin: 0; font-family: Poppins, sans-serif; font-size: 32px; color: #134A27">Compare plans</h2>
+<div style="overflow-x: auto; border: 1px solid #DCE3DD; border-radius: 16px">
+<table style="width: 100%; border-collapse: collapse; font-size: 15px; min-width: 820px">
+<thead><tr style="background: #E8F3EC; text-align: left"><th style="padding: 14px 18px; width: 32%">Feature</th><th style="padding: 14px 18px">Basic</th><th style="padding: 14px 18px">Grow</th><th style="padding: 14px 18px; background: #134A27; color: #FFFFFF">Business</th><th style="padding: 14px 18px">Organisation</th></tr></thead>
+<tbody>
+<tr style="border-top: 1px solid #DCE3DD"><td colspan="5" style="padding: 12px 18px; font-weight: 700; color: #8A5A3B; background: #FBF3DE">Tenders</td></tr>
+<tr style="border-top: 1px solid #DCE3DD"><td style="padding: 12px 18px">Apply to tenders</td><td style="padding: 12px 18px">3 a month</td><td style="padding: 12px 18px">Unlimited</td><td style="padding: 12px 18px; background: #F2F8F4">Unlimited</td><td style="padding: 12px 18px">Unlimited</td></tr>
+<tr style="border-top: 1px solid #DCE3DD"><td style="padding: 12px 18px">"Open to farmers" applications</td><td style="padding: 12px 18px">Unlimited</td><td style="padding: 12px 18px">Unlimited</td><td style="padding: 12px 18px; background: #F2F8F4">Unlimited</td><td style="padding: 12px 18px">Unlimited</td></tr>
+<tr style="border-top: 1px solid #DCE3DD"><td style="padding: 12px 18px">Post tenders</td><td style="padding: 12px 18px">1 a month</td><td style="padding: 12px 18px">3 a month</td><td style="padding: 12px 18px; background: #F2F8F4">Unlimited</td><td style="padding: 12px 18px">Unlimited</td></tr>
+<tr style="border-top: 1px solid #DCE3DD"><td style="padding: 12px 18px">Compare offers and award reports</td><td style="padding: 12px 18px; color: #5D6B63">—</td><td style="padding: 12px 18px; color: #5D6B63">—</td><td style="padding: 12px 18px; background: #F2F8F4">✓</td><td style="padding: 12px 18px">✓ with audit trail</td></tr>
+<tr style="border-top: 1px solid #DCE3DD"><td colspan="5" style="padding: 12px 18px; font-weight: 700; color: #8A5A3B; background: #FBF3DE">Opportunities</td></tr>
+<tr style="border-top: 1px solid #DCE3DD"><td style="padding: 12px 18px">Browse funding and support</td><td style="padding: 12px 18px">✓</td><td style="padding: 12px 18px">✓</td><td style="padding: 12px 18px; background: #F2F8F4">✓</td><td style="padding: 12px 18px">✓</td></tr>
+<tr style="border-top: 1px solid #DCE3DD"><td style="padding: 12px 18px">New-opportunity alerts and deadline reminders</td><td style="padding: 12px 18px; color: #5D6B63">—</td><td style="padding: 12px 18px">✓</td><td style="padding: 12px 18px; background: #F2F8F4">✓</td><td style="padding: 12px 18px">✓</td></tr>
+<tr style="border-top: 1px solid #DCE3DD"><td style="padding: 12px 18px">List your own programs</td><td style="padding: 12px 18px; color: #5D6B63">—</td><td style="padding: 12px 18px; color: #5D6B63">—</td><td style="padding: 12px 18px; background: #F2F8F4; color: #5D6B63">—</td><td style="padding: 12px 18px">✓</td></tr>
+<tr style="border-top: 1px solid #DCE3DD"><td colspan="5" style="padding: 12px 18px; font-weight: 700; color: #8A5A3B; background: #FBF3DE">Market Data</td></tr>
+<tr style="border-top: 1px solid #DCE3DD"><td style="padding: 12px 18px">Monthly market headline</td><td style="padding: 12px 18px">✓</td><td style="padding: 12px 18px">✓</td><td style="padding: 12px 18px; background: #F2F8F4">✓</td><td style="padding: 12px 18px">✓</td></tr>
+<tr style="border-top: 1px solid #DCE3DD"><td style="padding: 12px 18px">Full interactive dashboard and analysis</td><td style="padding: 12px 18px; color: #5D6B63">—</td><td style="padding: 12px 18px">✓</td><td style="padding: 12px 18px; background: #F2F8F4">✓</td><td style="padding: 12px 18px">✓</td></tr>
+<tr style="border-top: 1px solid #DCE3DD"><td style="padding: 12px 18px">Price alerts and CSV export</td><td style="padding: 12px 18px; color: #5D6B63">—</td><td style="padding: 12px 18px; color: #5D6B63">—</td><td style="padding: 12px 18px; background: #F2F8F4">✓</td><td style="padding: 12px 18px">✓</td></tr>
+<tr style="border-top: 1px solid #DCE3DD"><td colspan="5" style="padding: 12px 18px; font-weight: 700; color: #8A5A3B; background: #FBF3DE">Account</td></tr>
+<tr style="border-top: 1px solid #DCE3DD"><td style="padding: 12px 18px">Verified badge</td><td style="padding: 12px 18px; color: #5D6B63">—</td><td style="padding: 12px 18px">✓</td><td style="padding: 12px 18px; background: #F2F8F4">✓ priority</td><td style="padding: 12px 18px">✓ priority</td></tr>
+<tr style="border-top: 1px solid #DCE3DD"><td style="padding: 12px 18px">Featured profile in search</td><td style="padding: 12px 18px; color: #5D6B63">—</td><td style="padding: 12px 18px; color: #5D6B63">—</td><td style="padding: 12px 18px; background: #F2F8F4">✓</td><td style="padding: 12px 18px">✓</td></tr>
+<tr style="border-top: 1px solid #DCE3DD"><td style="padding: 12px 18px">Team members</td><td style="padding: 12px 18px">1</td><td style="padding: 12px 18px">1</td><td style="padding: 12px 18px; background: #F2F8F4">Up to 3</td><td style="padding: 12px 18px">Unlimited</td></tr>
+<tr style="border-top: 1px solid #DCE3DD"><td style="padding: 12px 18px">Support</td><td style="padding: 12px 18px">Help centre</td><td style="padding: 12px 18px">Email</td><td style="padding: 12px 18px; background: #F2F8F4">Priority</td><td style="padding: 12px 18px">Account manager</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section style="background: #F6F1E7">
+<div style="max-width: 1240px; margin: 0 auto; padding: 64px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px">
+<div style="background: #FFFFFF; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px"><h3 style="margin: 0; font-family: Poppins, sans-serif; font-size: 19px; color: #134A27">Ways to pay</h3><p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3A4740">Prices are shown in US dollars. Pay in Sudanese pounds at the current rate by bank transfer or mobile banking, or by international card. [Confirm payment providers]</p></div>
+<div style="background: #FFFFFF; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px"><h3 style="margin: 0; font-family: Poppins, sans-serif; font-size: 19px; color: #134A27">Sponsored plans</h3><p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3A4740">NGOs and programs can sponsor Grow plans for the farmers and cooperatives they work with. Ask us about bulk sponsorship.</p></div>
+<div style="background: #FFFFFF; border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 10px"><h3 style="margin: 0; font-family: Poppins, sans-serif; font-size: 19px; color: #134A27">Change any time</h3><p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3A4740">Upgrade, downgrade or cancel from your settings. Your profile and history stay with you on the free plan.</p></div>
+</div>
+</section>
+</div>
+</template>
+<script>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { annual: false }; }
+  renderVals() {
+    const g = this.props.growMonthly ?? 5;
+    const b = this.props.businessMonthly ?? 25;
+    const annual = this.state.annual;
+    const on = 'font: inherit; font-size: 14px; font-weight: 600; border: 0; padding: 10px 18px; border-radius: 999px; cursor: pointer; background: #1E6B3A; color: #FFFFFF';
+    const off = 'font: inherit; font-size: 14px; font-weight: 600; border: 0; padding: 10px 18px; border-radius: 999px; cursor: pointer; background: transparent; color: #134A27';
+    return {
+      growPrice: '$' + (annual ? g * 10 : g),
+      businessPrice: '$' + (annual ? b * 10 : b),
+      period: annual ? 'per year' : 'per month',
+      monthlyStyle: annual ? off : on,
+      annualStyle: annual ? on : off,
+      setMonthly: () => this.setState({ annual: false }),
+      setAnnual: () => this.setState({ annual: true })
+    };
+  }
+}
+window.__hasadMount(Component, {"growMonthly": 5, "businessMonthly": 25});
+</script>
+</body>
+</html>
